@@ -50,14 +50,13 @@ img {
 	text-align: left;
 }
 
-.seasearchinforch >div {
+.seasearchinforch div {
 	position: relative;
 	height: 40px;
 }
 
 .searchinfo div:first-of-type {
 	padding-left: 32px;
-	padding-right: 8px;
 	margin-right: 8px;
 }
 
@@ -89,9 +88,9 @@ form {
 
 .region {
 	position: relative;
-	vertical-align: middle;
+
 	display: block;
-	width: 194px
+	width: 170px
 }
 
 .region span {

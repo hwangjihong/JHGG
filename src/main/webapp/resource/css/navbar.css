@@ -2,30 +2,79 @@
 
 body{
 	background-color: #070E2B;
+	margin: 0;
+	min-width: 1280px;
+
 }
 
 .navbar {
+	position: relative;
+	display: flex;
+	align-items: center;
 	background-color: #213A96;
+	flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding: 0.5rem 0;
+    width: 100%;
+}
+.container {
+	width: 100%;
+	display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar-nav {
+	width:100%;
 }
 
 .navbar-brand {
 	font-size: 35px;
 	color: white;
 	padding-right: 30px;
+	padding-top: 0.3rem;
+	padding-bottom: 0.3rem;
+	margin-left: 1rem;
+	margin-right: 1rem;
+	text-decoration: none;
+	white-space: nowrap;
 }
 
 .navbar-brand:hover {
 	color: white;
 }
 
+.collapse {
+	display: flex!important;
+    flex-basis: auto;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.navbar-nav {
+	flex-direction: row;
+	width: 100%;
+	display: flex;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
 .nav-item{
 	padding-right: 15px;
+	
 }
 
 .nav-link {
+	display: block;
 	font-size: 18px;
 	color: white;
 	opacity: 0.7;
+	padding-right: 0.5rem;
+	padding-left: 0.5rem;
+	text-decoration: none;
+    background: 0 0;
+    border: 0;
 }
 
 .nav-link:hover {
@@ -36,3 +85,20 @@ body{
 a {
 	cursor: pointer;
 }
+ul {
+	margin-top: 0;
+}
+
+.login {
+	display: block;
+	font-size: 20px;
+	color: white;
+	padding-right: 0.5rem;
+	padding-left: 0.5rem;
+	margin-right: 1rem;
+	text-decoration: none;
+    background: 0 0;
+    border: 0;
+    white-space: nowrap;
+}
+

@@ -13,7 +13,7 @@
 		<header><%@include file="navigation.jsp" %></header> 
 		<div class="content">
 			<div class="banner"><img src="resource/img/main.png"></div>
-			<div class="input">
+			<div class="input" role="tablist">
 				<div>
 					<form action="rank.jsp" class="searchinfo">
 						<div>							
