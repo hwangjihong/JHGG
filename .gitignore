@@ -3,6 +3,7 @@
 
 /src/main/java/util/APIKey.java
 /src/main/java/util/DatabaseUtil.java
+/src/main/java/util/Mail.java
 
 ### Eclipse ###
 .metadata

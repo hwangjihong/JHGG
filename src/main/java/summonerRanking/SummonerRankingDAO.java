@@ -11,6 +11,7 @@ import util.DatabaseUtil;
 
 public class SummonerRankingDAO {	
 	
+	@SuppressWarnings("resource")
 	public void SummonerRankingUpdate(ArrayList<SummonerRankingDTO> list) {
 		String sql = "delete from summonerRanking";
 		Connection conn = null;
