@@ -89,8 +89,7 @@ public class SummonerRankingService implements CommandHandler {
 		
 		int startRow = (page - 1) * limit;
 		int pageCount = (int) Math.ceil((double) listCount / limit);
-		System.out.println("page :" + page + ", limit : " + limit + ", listCount : " + listCount + ", startRow : " + startRow +
-				", pageCount : " + pageCount);
+
 		ArrayList<SummonerRankingDTO> list = srDAO.selSummonerRanking(startRow, limit);
 		request.setAttribute("list", list);
 		request.setAttribute("startRank", startRank);

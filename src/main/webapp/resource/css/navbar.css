@@ -4,7 +4,6 @@ body{
 	background-color: #070E2B;
 	margin: 0;
 	min-width: 1280px;
-
 }
 
 .navbar {
@@ -58,6 +57,7 @@ body{
     padding-left: 0;
     margin-bottom: 0;
     list-style: none;
+    margin-top: 0;
 }
 
 .nav-item{
@@ -84,9 +84,6 @@ body{
 
 a {
 	cursor: pointer;
-}
-ul {
-	margin-top: 0;
 }
 
 .loginout {

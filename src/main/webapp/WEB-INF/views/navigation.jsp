@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,15 +18,11 @@
 	          <a class="nav-link" onclick="location.href='home.do'">홈</a>
 	        </li>
 	        <li class="nav-item">
-	          <a class="nav-link" href="#">챔피언 분석</a>
-	        </li>
-	        <li class="nav-item">
 	          <a class="nav-link" onclick="location.href='summonerRanking.do'">랭킹</a>
 	        </li>
 	        <li class="nav-item">
-	          <a class="nav-link" href="#">커뮤니티</a>
-	        </li>
-	        
+	          <a class="nav-link" onclick="location.href='board.do'">게시판</a>
+	        </li>	        
 	      </ul>
 	      <div>
 		  	<c:choose>

@@ -7,6 +7,7 @@
 <link href="resource/img/icon.png" rel="shortcut icon" type="image/x-icon">
 <link href="resource/css/home.css" rel="stylesheet" type="text/css">
 <title>JH.GG</title>
+
 </head>
 <body>
 	<div id="__next">

@@ -5,9 +5,40 @@
 	flex-direction: column;
 	height: 100%; 
 }
-
-div {
-	display: block;
+.search {
+	box-sizing: border-box;
+    min-width: 70px;
+    height: 35px;
+    line-height: 28px;
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+    border-image: initial;
+    border-color: #5383E8;
+    background-color: #FFF;
+    color: #5383E8;
+    font-weight: bold;
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+}
+button {
+	margin-left: 250px;
+	box-sizing: border-box;
+    min-width: 70px;
+    height: 35px;
+    line-height: 28px;
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+    border-image: initial;
+    border-color: #5383E8;
+    background-color: #FFF;
+    color: #5383E8;
+    font-weight: bold;
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
 }
 
 .content-header {
@@ -23,6 +54,12 @@ div {
 	padding: 16px 0px;
 }
 
+div {
+	display: block;
+}
+
+
+
 .content-container {
 	display: block;
 	width: 1080px;
@@ -35,7 +72,7 @@ thead {
 	border-color: inherit;
 }
 
-.ranking {
+.comunity-table {
 	table-layout: auto;
 	width: 100%;
 	border-collapse: collapse;
@@ -46,7 +83,7 @@ thead {
 table{
 	border-radius: 0;
 }
-.ranking thead th {
+.comunity-table thead th {
 	position: relative;
 	height: 32px;
 	user-select: none;
@@ -57,30 +94,31 @@ table{
 	border-bottom: 1px solid;
 	border-color: #EBEEF1;
 	box-sizing: border-box;
+
 }
 
-.ranking thead tr{
+.comunity-table thead tr{
 	text-align: left;
 
 }
 
-.ranking thead th:first-of-type {
+.comunity-table thead th:first-of-type {
 	border-radius: 4px 0 0 0;
 }
 
-.ranking th:first-of-type, .ranking td:first-of-type {
+.comunity-table th:first-of-type, .comunity-table td:first-of-type {
 	padding-left: 12px;
 }
 
-.ranking thead th:last-of-type {
+.comunity-table thead th:last-of-type {
 	border-radius: 0 4px 0 0;
 }
 
-.ranking tbody tr:last-of-type {
+.comunity-table tbody tr:last-of-type {
 	border-radius: 0 0 4px 4px;
 }
 
-.ranking th:last-of-type, .ranking td:last-of-type {
+.comunity-table th:last-of-type, .comunity-table td:last-of-type {
 	padding-left: 12px;
 }
 
@@ -90,12 +128,12 @@ tr {
 	border-color: inherit;
 }
 
-.ranking tbody td {
+.comunity-table tbody td {
 	border-bottom: 1px solid;
 	border-color: #EBEEF1;
 }
 
-.summoner td {
+.info td {
 	padding: 4px 0;
 	font-size: 12px;
 	background-color: #FFF;
@@ -116,29 +154,10 @@ tr {
     margin-bottom: 50px;
     border-radius: 0px 0px 4px 4px;
 }
-
 .page div {
 	display: flex;
     justify-content: space-between;
     justify-content: center;
-}
-
-.selectedPage {
-	box-sizing: border-box;
-    min-width: 28px;
-    height: 28px;
-    line-height: 28px;
-    margin-left: 12px;
-    border-radius: 4px;
-    border-width: 1px;
-    border-style: solid;
-    border-image: initial;
-    border-color: #5383E8;
-    background-color: #5383E8;
-    color: #FFF;
-    font-weight: bold;
-    text-align: center;
-    font-size: 12px;
 }
 
 .pages {
@@ -159,6 +178,34 @@ tr {
     font-size: 12px;
 }
 
+.selectedPage {
+	box-sizing: border-box;
+    min-width: 28px;
+    height: 28px;
+    line-height: 28px;
+    margin-left: 12px;
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+    border-image: initial;
+    border-color: #5383E8;
+    background-color: #5383E8;
+    color: #FFF;
+    font-weight: bold;
+    text-align: center;
+    font-size: 12px;
+}
+
 .page div > a {
 	text-decoration: none;
+}
+
+.tool {
+	margin-bottom: 10px;
+}
+
+.input {
+	width: 200px;
+	height: 20px;
+	margin-left: 400px;
 }

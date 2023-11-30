@@ -12,14 +12,15 @@ import javax.mail.internet.MimeMessage;
 
 public class SendMail {
 	
-	public static void sendMail(String email) {
+	public static void sendMail(String email, String id) {
+		// 메일 전송
 		String host = "http://localhost:8181/JHGG/";
 		String from = "jhggproject@gmail.com";
 		String to = email;
 		String code = SHA256.getSHA256(to);
 		String subject = "JHGG 메일 인증";
 		String content = "다음 링크에 접속하여 이메일 인증을 진행해주세요." + 
-			"<a href='" + host + "emailCheck.do?code=" + code + "'>이메일 인증하기</a>";
+			"<a href='" + host + "emailCheck.do?code=" + code + "&&id=" + id +"'>이메일 인증하기</a>";
 		
 		Properties p = new Properties();
 		p.put("mail.smtp.user", from);
@@ -31,8 +32,8 @@ public class SendMail {
 		p.put("mail.smtp.socketFactory.port", "465");
 		p.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 		p.put("mail.smtp.socketFactory.fallback", "false");
-		p.put("mail.smtp.ssl.protocols", "TLSv1.2"); // 추가된 코드
-		p.put("mail.smtp.ssl.enable", "true");  // 추가된 코드
+		p.put("mail.smtp.ssl.protocols", "TLSv1.2");
+		p.put("mail.smtp.ssl.enable", "true");
 		
 		try {
 			Authenticator auth = new Mail();

@@ -13,14 +13,14 @@
 		<header><%@include file="navigation.jsp" %></header>
 		<div class="content">
 			<div class="register-wrapper wrapper">
-		        <h2>Login</h2>
+		        <h2>회원가입</h2>
 		        <form method="post" action="registerAction.do" id="input-form">
 		            <input type="text" name="id" placeholder="아이디" minlength="8" maxlength="15" required>
 		            <input type="password" name="password" placeholder="비밀번호" minlength="8" maxlength="15" required>   
 		            <input type="password" name="passwordCheck" placeholder="비밀번호 확인" minlength="8" maxlength="15" required>
 		            <input type="text" name="nickname" placeholder="닉네임" minlength="5" maxlength="15" required>
 		            <input type="email" name="email" placeholder="이메일" maxlength="30" required>		                     
-		            <input type="submit" value="로그인">
+		            <input type="submit" value="회원가입">
 		        </form>
 		    </div>
 	    </div>

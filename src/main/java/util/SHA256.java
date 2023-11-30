@@ -5,6 +5,7 @@ import java.security.MessageDigest;
 public class SHA256 {
 	
 	public static String getSHA256(String input) {
+		// 메일을 SHA256 암호화
 		StringBuffer result = new StringBuffer();
 		try {
 			MessageDigest digest = MessageDigest.getInstance("SHA-256");

@@ -100,7 +100,7 @@ public class RegisterService implements CommandHandler {
 			script.close();
 			return null;
 		} else {
-			SendMail.sendMail(email);
+			SendMail.sendMail(email, id);
 			PrintWriter script = response.getWriter();
 			script.print("<script>");
 			script.print("alert('회원가입 완료.\\n입력한 이메일에 인증 메일을 보냈습니다.\\n인증해 주세요.');");

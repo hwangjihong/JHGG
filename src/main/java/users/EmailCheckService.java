@@ -18,30 +18,38 @@ public class EmailCheckService implements CommandHandler{
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
+		String id = request.getParameter("id");
+		String code = request.getParameter("code");
+		
 		UsersDAO usersDAO = new UsersDAO();
-		int result = usersDAO.emailAuth(request.getParameter("code"));
 		
-		if(result == -1) {
+		int result = usersDAO.emailAuthCheck(id, code);
+		if(result == 1) {
 			PrintWriter script = response.getWriter();
 			script.print("<script>");
-			script.print("alert('이메일 인증 실패');");
+			script.print("alert('이미 이메일 인증이 된 아이디입니다.');");
 			script.print("location.href='home.do'");
 			script.print("</script>");
 			script.close();
-		}else {
-			String id = usersDAO.getID(request.getParameter("code"));
+		} else {		
+			result = usersDAO.emailAuth(id, code);
 			
-			HttpSession session = request.getSession();
-			session.setAttribute("id", id);
-			
-			PrintWriter script = response.getWriter();
-			script.print("<script>");
-			script.print("alert('이메일 인증 성공');");
-			script.print("location.href='home.do'");
-			script.print("</script>");
-			script.close();
+			if(result == -1) {
+				PrintWriter script = response.getWriter();
+				script.print("<script>");
+				script.print("alert('이메일 인증 실패');");
+				script.print("location.href='home.do'");
+				script.print("</script>");
+				script.close();
+			}else {
+				PrintWriter script = response.getWriter();
+				script.print("<script>");
+				script.print("alert('이메일 인증 성공');");
+				script.print("location.href='home.do'");
+				script.print("</script>");
+				script.close();		
+			}
 		}
-		
 		return null;
 	}
 	

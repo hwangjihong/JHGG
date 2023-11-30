@@ -13,10 +13,10 @@
 		<header><%@include file="navigation.jsp" %></header>
 		<div class="content">
 			<div class="login-wrapper wrapper">
-		        <h2>Login</h2>
-		        <form method="post" action="#" id="input-form">
-		            <input type="text" name="userName" placeholder="아이디">
-		            <input type="password" name="userPassword" placeholder="비밀번호">          
+		        <h2>로그인</h2>
+		        <form method="post" action="loginAction.do" id="input-form">
+		            <input type="text" name="id" placeholder="아이디" required>
+		            <input type="password" name="password" placeholder="비밀번호" required>          
 		            <input type="submit" value="로그인">
 		        </form>
 		        <a onclick="location.href='register.do'">회원가입</a>
