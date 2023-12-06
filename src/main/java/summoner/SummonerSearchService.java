@@ -100,6 +100,7 @@ public class SummonerSearchService implements CommandHandler{
 			requestURL += "/" + summonerName;
 			requestURL += "/" + summonerTag;
 			requestURL += "?api_key=" + APIKey.Key;
+			requestURL = requestURL.replaceAll(" ", "%20");
 			URL url = new URL(requestURL);
 			HttpURLConnection uconn = (HttpURLConnection)url.openConnection();
 			uconn.setRequestMethod("GET");
@@ -119,7 +120,7 @@ public class SummonerSearchService implements CommandHandler{
 			account.put("gameName", jo.get("gameName"));
 			account.put("tagLine", jo.get("tagLine"));
 		} catch (Exception e) {
-			System.out.println("getPUUID JSON 에러 : " + e.getMessage());
+			System.out.println("getAccount JSON 에러 : " + e.getMessage());
 		}
 		
 		return account;
@@ -151,7 +152,7 @@ public class SummonerSearchService implements CommandHandler{
 			account.put("profileIconId", jo.get("profileIconId"));
 			account.put("summonerLevel", jo.get("summonerLevel"));
 		} catch (Exception e) {
-			System.out.println("getPUUID JSON 에러 : " + e.getMessage());
+			System.out.println("getAccountInfo JSON 에러 : " + e.getMessage());
 		}
 		
 		return account;
@@ -179,14 +180,19 @@ public class SummonerSearchService implements CommandHandler{
 			
 			JSONParser jp = new JSONParser();
 			JSONArray jo = (JSONArray) jp.parse(result);
-			JSONObject childobj = (JSONObject)jo.get(1);
-			entries.put("tier", childobj.get("tier"));
-			entries.put("rank", childobj.get("rank"));
-			entries.put("leaguePoints", childobj.get("leaguePoints"));
-			entries.put("wins", childobj.get("wins"));
-			entries.put("losses", childobj.get("losses"));
+			
+			for(Object obj : jo) {		
+				JSONObject childobj = (JSONObject)obj;
+				if(childobj.get("queueType").toString().equals("RANKED_SOLO_5x5")) {
+					entries.put("tier", childobj.get("tier"));
+					entries.put("rank", childobj.get("rank"));
+					entries.put("leaguePoints", childobj.get("leaguePoints"));
+					entries.put("wins", childobj.get("wins"));
+					entries.put("losses", childobj.get("losses"));
+				}
+			}
 		} catch (Exception e) {
-			System.out.println("getPUUID JSON 에러 : " + e.getMessage());
+			System.out.println("getEntries JSON 에러 : " + e.getMessage());
 		}
 		
 		return entries;

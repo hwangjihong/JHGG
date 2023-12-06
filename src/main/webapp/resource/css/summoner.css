@@ -79,7 +79,7 @@ img {
 }
 
 .info {
-    flex: 0.5;
+    flex: 1 1 0%;
     margin-left: 24px;
     box-sizing: border-box;
 }
@@ -142,7 +142,7 @@ h1 {
 .entries-content img {
 	background-color: #F7F7F9;
     border-radius: 50%;
-    height: 250px;
+    height: 150px;
 }
 
 .entries-content > .info {
