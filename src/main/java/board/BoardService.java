@@ -43,7 +43,7 @@ public class BoardService implements CommandHandler{
 		BoardDAO boardDAO = new BoardDAO();
 		
 		int page = 1;
-		int limit = 10;
+		int limit = 5;
 		int listCount = boardDAO.getListCount();
 		
 		if(request.getParameter("page") != null) {
@@ -61,6 +61,7 @@ public class BoardService implements CommandHandler{
 		request.setAttribute("startRank", startPage);
 		request.setAttribute("page", page);
 		request.setAttribute("pageCount", pageCount);
+		
 		
 		return "board";
 	}

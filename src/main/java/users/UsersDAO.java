@@ -8,8 +8,8 @@ public class UsersDAO {
 	
 	public int join(UsersDTO user) {
 		// 회원가입 SQL
-		String sql = "insert into users (id, pw, nickname, email, emailHash, emailAuth, type) values"
-				+ "(?, md5(?), ?, ?, ?, ?, ?)";
+		String sql = "insert into users (id, pw, nickname, email, emailHash, emailAuth) values"
+				+ "(?, md5(?), ?, ?, ?, ?)";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {		
@@ -22,7 +22,6 @@ public class UsersDAO {
 			pstmt.setString(4, user.email);
 			pstmt.setString(5, user.emailHash);
 			pstmt.setInt(6, user.emailAuth);
-			pstmt.setInt(7, user.type);
 			
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -136,7 +135,7 @@ public class UsersDAO {
 			while(rs.next()) { email = rs.getString("email"); }
 			
 		} catch (Exception e) {
-			System.out.println("UsersDAO emailAuthCheck SQL 이메일 인증 체크 : " +e.getMessage());
+			System.out.println("UsersDAO getEmail SQL : " +e.getMessage());
 		} finally {
 			if(rs != null) try {rs.close();}catch(Exception e) {}
 			if(pstmt!=null) try{pstmt.close();}catch(Exception e){}
@@ -207,7 +206,7 @@ public class UsersDAO {
 			while(rs.next()) { return rs.getString("nickname"); }
 			
 		} catch (Exception e) {
-			System.out.println("UsersDAO emailAuthCheck SQL 이메일 인증 체크 : " +e.getMessage());
+			System.out.println("UsersDAO getNickName SQL : " +e.getMessage());
 		} finally {
 			if(rs != null) try {rs.close();}catch(Exception e) {}
 			if(pstmt!=null) try{pstmt.close();}catch(Exception e){}

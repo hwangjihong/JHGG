@@ -34,10 +34,10 @@ public class SummonerRankingService implements CommandHandler {
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String cTime = sdf.format(System.currentTimeMillis());
-		Date uTime = srDAO.selSummonerRankingUpdateTime();
+		Date uTime = srDAO.getSummonerRankingUpdateTime();
 		
 		// 시간 다르면 업데이트 (하루에 한 번만)
-		if(!cTime.equals(uTime.toString())) {
+		if( uTime == null || !cTime.equals(uTime.toString())) {
 			BufferedReader br = null;
 			try {
 				String requestURL = "https://kr.api.riotgames.com/lol/league/v4/challengerleagues/by-queue/RANKED_SOLO_5x5";
@@ -70,7 +70,7 @@ public class SummonerRankingService implements CommandHandler {
 					list.add(sr);
 				}
 				srDAO.SummonerRankingUpdate(list);
-				srDAO.upSummonerRankingUpdateTime(cTime);
+				srDAO.setSummonerRankingUpdateTime(cTime);
 			} catch (Exception e) {
 				System.out.println("RankingService JSON 에러 : " + e.getMessage());
 			}
@@ -90,7 +90,7 @@ public class SummonerRankingService implements CommandHandler {
 		int startRow = (page - 1) * limit;
 		int pageCount = (int) Math.ceil((double) listCount / limit);
 
-		ArrayList<SummonerRankingDTO> list = srDAO.selSummonerRanking(startRow, limit);
+		ArrayList<SummonerRankingDTO> list = srDAO.getSummonerRanking(startRow, limit);
 		request.setAttribute("list", list);
 		request.setAttribute("startRank", startRank);
 		request.setAttribute("page", page);

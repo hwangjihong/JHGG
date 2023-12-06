@@ -41,8 +41,8 @@
 				<div class="page">
 					<div class="tool">
 						<div>
-							<form action="">
-								<input class="input"type="text">
+							<form action="boardSearch.do">
+								<input class="input" type="text" name="data">
 								<input class="search" type="submit" value="검색">
 							</form>
 						</div>
@@ -54,18 +54,40 @@
 						<c:forEach var="i" begin="1" end="${pageCount }">
 							<c:choose>
 								<c:when test="${page != i}">
-									<a href="board.do?page=${i }">
-										<div class="pages">
-											${i }
-										</div>
-									</a>
+									<c:choose>
+										<c:when test="${data != null }">
+											<a href="boardSearch.do?data=${data }&&page=${i }">
+												<div class="pages">
+													${i }
+												</div>
+											</a>
+										</c:when>
+										<c:otherwise>
+											<a href="board.do?page=${i }">
+												<div class="pages">
+													${i }
+												</div>
+											</a>
+										</c:otherwise>
+									</c:choose>
 								</c:when>
 								<c:otherwise>
-									<a href="board.do?page=${i }">
-										<div class="selectedPage">
-											${i }
-										</div>
-									</a>
+									<c:choose>
+										<c:when test="${data != null }">
+											<a href="boardSearch.do?data=${data }&&page=${i }">
+												<div class="selectedPage">
+													${i }
+												</div>
+											</a>
+										</c:when>
+										<c:otherwise>
+											<a href="board.do?page=${i }">
+												<div class="selectedPage">
+													${i }
+												</div>
+											</a>
+										</c:otherwise>
+									</c:choose>
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>

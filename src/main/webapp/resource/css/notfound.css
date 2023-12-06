@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+
+#__next {
+	display: flex;
+	flex-direction: column;
+	height: 100%; 
+}
+
+div {
+	display: block;
+}
+
+.content-header {
+	margin-top: 0px;
+	background: white;
+}
+
+.content-header h1 {
+	width: 1080px;
+	margin-left: 10px;
+	margin-top: 5px;
+	font-size: 24px;
+	padding: 16px 0px;
+}

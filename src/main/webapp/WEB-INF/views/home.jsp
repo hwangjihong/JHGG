@@ -16,7 +16,7 @@
 			<div class="banner"><img src="resource/img/main.png"></div>
 			<div class="input" role="tablist">
 				<div>
-					<form action="rank.jsp" class="searchinfo">
+					<form action="summonerSearch.do" class="searchinfo">
 						<div>							
 							<small class="label">Region</small>							
 							<div class="region">
@@ -25,7 +25,7 @@
 						</div>
 						<div class="focused">
 							<label class="label">Search</label>
-							<input name="search" autocapitalize="off" type="text" placeholder="소환사명...">
+							<input name="summoner" autocapitalize="off" type="text" placeholder="소환사명#태그">
 						</div>
 						<button type="submit">.GG</button>
 					</form>

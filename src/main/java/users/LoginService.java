@@ -2,16 +2,13 @@ package users;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 
-import javax.mail.Session;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import util.CommandHandler;
-import util.Mail;
 import util.SendMail;
 
 public class LoginService implements CommandHandler{

@@ -23,13 +23,26 @@ public class SummonerRankingDAO {
 			
 			sql = "insert into summonerRanking values(?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
-			for (var sr : list) {
+			int count = 0;
+			for (SummonerRankingDTO sr : list) {
+				++count;
+				
 				pstmt.setString(1, sr.getSummonerName());
 				pstmt.setInt(2, sr.getLeaguePoints());
 				pstmt.setInt(3, sr.getWins());
 				pstmt.setInt(4, sr.getLosses());
-				pstmt.execute();
+				
+				pstmt.addBatch();
+				pstmt.clearParameters();
+				
+				if(count % 100 == 0) {
+					pstmt.executeBatch();
+					pstmt.clearBatch();
+				}
 			}
+
+			pstmt.executeBatch();
+
 		} catch (SQLException e) {
 			System.out.println("SummonerRankingUpdate SQLException : " + e.getMessage());
 		} finally {
@@ -38,7 +51,7 @@ public class SummonerRankingDAO {
 		}
 	}
 	
-	public ArrayList<SummonerRankingDTO> selSummonerRanking(int startRow, int limit) {
+	public ArrayList<SummonerRankingDTO> getSummonerRanking(int startRow, int limit) {
 		String sql = "select * from summonerRanking order by leaguePoints desc limit ?, ?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -69,7 +82,7 @@ public class SummonerRankingDAO {
 		return list;
 	}
 	
-	public Date selSummonerRankingUpdateTime() {
+	public Date getSummonerRankingUpdateTime() {
 		String sql = "select * from summonerRankingUpdateTime";	
 		
 		Connection conn = null;
@@ -94,7 +107,7 @@ public class SummonerRankingDAO {
 		return date;
 	}
 	
-	public void upSummonerRankingUpdateTime(String time) {
+	public void setSummonerRankingUpdateTime(String time) {
 		String sql = "update summonerRankingUpdateTime set time = ?";	
 		
 		Connection conn = null;

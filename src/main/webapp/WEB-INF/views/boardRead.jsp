@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,10 +29,13 @@
 						</tr>
 					</tbody>
 				</table>
-				<div class="button">
-					<button class="modify">수정</button>
-					<button class="remove">삭제</button>
-				</div>
+				<c:set var="id" value="session.id"/>
+				<c:if test="${sessionScope.id eq board.writerId}">
+					<div class="button">
+						<button class="modify" onclick="location.href='boardModify.do?boardId=${board.boardId}'">수정</button>
+						<button class="remove" onclick="if(confirm('정말로 삭제하시겠습니까?')){location.href='boardRemoveAction.do?boardId=${board.boardId}';}">삭제</button>
+					</div>
+				</c:if>
 			</div>
 		</div>
 	</div>

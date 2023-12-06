@@ -26,7 +26,7 @@
 	      </ul>
 	      <div>
 		  	<c:choose>
-				<c:when test="${sessionScope.id == null}">
+				<c:when test="${empty sessionScope.id}">
 					<a class="loginout" onclick="location.href='login.do'">로그인</a>
 				</c:when>
 				<c:otherwise>

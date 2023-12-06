@@ -7,7 +7,7 @@ public class UsersDTO {
 	String email;
 	String emailHash;
 	int emailAuth;
-	int type;
+
 	public String getId() {
 		return id;
 	}
@@ -43,12 +43,6 @@ public class UsersDTO {
 	}
 	public void setEmailAuth(int emailAuth) {
 		this.emailAuth = emailAuth;
-	}
-	public int getType() {
-		return type;
-	}
-	public void setType(int type) {
-		this.type = type;
 	}
 	
 }

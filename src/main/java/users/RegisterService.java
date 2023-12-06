@@ -85,7 +85,6 @@ public class RegisterService implements CommandHandler {
 		user.setEmail(email);
 		user.setEmailHash(SHA256.getSHA256(email));
 		user.setEmailAuth(0); // 이메일 인증 0 : 안됨 // 1 : 됨
-		user.setType(0); // 유저 타입 0 : 일반 // 1 : 관리자
 		
 		UsersDAO usersDAO = new UsersDAO();
 		
